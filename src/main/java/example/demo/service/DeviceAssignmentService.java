@@ -45,6 +45,4 @@ public class DeviceAssignmentService {
         deviceAssignmentRepository.create(deviceAssignmentEntity);
         return deviceAssignmentMapper.entityToModel(deviceAssignmentEntity);
     }
-
-
 }
