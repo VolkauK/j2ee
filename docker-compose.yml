@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+  app:
+    build: .
+    environment:
+      - WILDFLY_DATASOURCE_NAME=PostgresDS
+      - WILDFLY_DATASOURCE_JNDI=java:jboss/datasources/PostgresDS
+      - WILDFLY_DATASOURCE_USER=postgres
+      - WILDFLY_DATASOURCE_PASSWORD=password
+      - WILDFLY_DATASOURCE_URL=jdbc:postgresql://db:5432/mydb
+    ports:
+      - "8080:8080"
+      - "9990:9990"
+    depends_on:
+      - postgres
