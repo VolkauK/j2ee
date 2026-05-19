@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
+
+import java.util.Optional;
 
 @Stateless
 @NoArgsConstructor(access = lombok.AccessLevel.PROTECTED, force = true)
@@ -23,8 +25,8 @@ public class DeviceService {
     private final DeviceMapper deviceMapper;
 
 
-    public Device getDeviceById(long id) {
+    public Optional<Device> getDeviceById(long id) {
         DeviceEntity deviceEntity = deviceRepository.findById(id);
-        return deviceMapper.entityToModel(deviceEntity);
+        return Optional.ofNullable(deviceMapper.entityToModel(deviceEntity));
     }
 }

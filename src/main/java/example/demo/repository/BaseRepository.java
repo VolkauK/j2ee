@@ -29,7 +29,7 @@ public abstract class BaseRepository<T, ID> {
     }
 
     public List<T> findAll() {
-        String jpql = "SELECT e FROM " + entityType.getSimpleName() + " e ORDER BY e.name";
+        String jpql = "FROM " + entityType.getSimpleName();
         return em.createQuery(jpql, entityType)
                 .getResultList();
     }

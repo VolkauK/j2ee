@@ -4,7 +4,7 @@ import example.demo.entity.DeviceAssignmentEntity;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 @ApplicationScoped
 public class DeviceAssignmentRepository extends BaseRepository<DeviceAssignmentEntity, Long> {

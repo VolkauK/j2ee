@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
+
+import java.util.Optional;
 
 @Stateless
 @NoArgsConstructor(access = lombok.AccessLevel.PROTECTED, force = true)
@@ -27,8 +29,8 @@ public class EmployeeService {
         return employeeMapper.entityToModel(employeeEntity);
     }
 
-    public Employee getEmployeeById(long id) {
+    public Optional<Employee> getEmployeeById(long id) {
         EmployeeEntity employeeEntity = employeeRepository.findById(id);
-        return employeeMapper.entityToModel(employeeEntity);
+        return Optional.ofNullable(employeeMapper.entityToModel(employeeEntity));
     }
 }

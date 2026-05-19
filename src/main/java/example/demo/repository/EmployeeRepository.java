@@ -4,7 +4,7 @@ import example.demo.entity.EmployeeEntity;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 @ApplicationScoped
 public class EmployeeRepository extends BaseRepository<EmployeeEntity, Long> {

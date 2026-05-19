@@ -3,11 +3,10 @@ package example.demo.mapper;
 import example.demo.entity.DeviceAssignmentEntity;
 import example.demo.model.DeviceAssignment;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
-import javax.inject.Inject;
 
 @ApplicationScoped
 @RequiredArgsConstructor(onConstructor_ = @Inject)
